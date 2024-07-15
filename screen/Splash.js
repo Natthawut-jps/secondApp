@@ -1,7 +1,10 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Pressable } from "react-native";
 import React from "react";
 
-const Splash = () => {
+const Splash = ({ navigation }) => {
+  const onPress = () => {
+    navigation.navigate("Herbs");
+  };
   return (
     <View
       style={{
@@ -41,16 +44,18 @@ const Splash = () => {
         <Text style={{ fontSize: 16, color: "white", alignItems: "center" }}>
           สมุนไพรท้องถิ่นไทเลย
         </Text>
-        <Image
-          style={{
-            width: 300,
-            height: 250,
-            objectFit: "cover",
-            alignItems: "flex-end",
-            borderRadius: 10,
-          }}
-          source={require(".././assets/overview.png")}
-        />
+        <Pressable onPress={onPress}>
+          <Image
+            style={{
+              width: 300,
+              height: 250,
+              objectFit: "cover",
+              alignItems: "flex-end",
+              borderRadius: 10,
+            }}
+            source={require(".././assets/overview.png")}
+          />
+        </Pressable>
         <View
           style={{
             flex: 1,
@@ -61,7 +66,7 @@ const Splash = () => {
             paddingLeft: 10,
             paddingRight: 10,
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
         >
           <Image
